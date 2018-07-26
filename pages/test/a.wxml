@@ -1,0 +1,67 @@
+<!--pages/test/a.wxml
+<!--<text>pages/test/a.wxml</text>-->
+
+<wxs src="a.wxs"  module="tools"/>
+
+<view> {{tools.foo}} </view>
+<view> {{tools.bar(tools.foo)}} </view>
+
+<view>----------------------------------------------------</view>
+
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
+
+<view>----------------------------------------------------</view>
+
+<switch wx:for="{{objectArray}}" style="display: block;" bindchange='switchChange'> {{item.unique}} </switch>
+
+<view>----------------------------------------------------</view>
+
+<checkbox-group bindchange="checkboxChange">
+  <lable class="checkbox" wx:for="{{items}}">
+    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </lable>
+</checkbox-group>
+
+<view>----------------------------------------------------</view>
+
+<view wx:for="{{array1}}"> 
+   {{index}} : {{item}} 
+
+</view>
+
+<view>----------------------------------------------------</view>
+
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+
+<view>----------------------------------------------------</view>
+
+<view wx:if="{{view == 'WEBVIEW'}}"> WEBVIEW </view>
+<view wx:elif="{{view == 'APP'}}"> APP </view>
+<view wx:else="{{view == 'MINA'}}"> MINA </view>
+
+<navigator open-type='reLaunch' url='/pages/logs/logs'>打开log页</navigator>
+
+<view>{{text}}</view>
+<button bindtap="changeText"> Change normal data </button>
+
+<view>{{num}}</view>
+<button bindtap="changeNum"> Change normal num </button>
+
+<view>{{array[0].text}}</view>
+<button bindtap="changeItemInArray"> Change Array data </button>
+
+<view>{{object.text}}</view>
+<button bindtap="changeItemInObject"> Change Object data </button>
+
+<view>{{newField.text}}</view>
+<button bindtap="addNewField"> Add new data </button>
+
+<button bindtap="rediToLog"> 打开log页 </button>

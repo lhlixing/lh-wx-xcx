@@ -1,0 +1,12 @@
+var foo = "'hello world' from tools.wxs";
+
+var bar = function (d) {
+  return d;
+}
+
+//每个 wxs 模块均有一个内置的 module 对象。
+//module对象的exports属性可以对外共享本模块的私有变量与函数。
+module.exports = {
+  foo: foo,
+  bar: bar
+};
